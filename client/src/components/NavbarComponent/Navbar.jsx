@@ -7,24 +7,33 @@ import {
   FaLinkedin,
   FaYoutube,
 } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeMenuItem, setActiveMenuItem] = useState("Home"); // Added state for active menu item
+
   const menuIcons = [
     {
       id: 1,
       name: "Home",
-      url: "",
+      url: "/",
     },
     {
       id: 2,
       name: "About",
-      url: "",
+      url: "/about-us",
+    },
+    {
+      id: 3,
+      name: "Services",
+      url: "/services",
     },
     {
       id: 3,
       name: "Contact",
-      url: "",
+      url: "/contact-us",
     },
   ];
   const socialMedia = [
@@ -53,30 +62,45 @@ const Navbar = () => {
       url: "https://www.youtube.com/",
     },
   ];
+
+  const handleMenuItemClick = (item) => {
+    setActiveMenuItem(item.name);
+    setIsMenuOpen(false);
+    navigate(item.url);
+  };
   return (
     <>
-      <div className=" mx-3 flex gap-4 justify-between md:0">
+      {/* <div className=" mx-5 my-4 flex gap-4 justify-between "> */}
+      <div className=" px-5 py-4 flex gap-4 justify-between bg-[#222733]">
         {/* logo */}
         <div className=" flex items-center gap-2">
-          <div className="w-20">
-            <img className="" src="/VamLogos/VamImageLogo.png" alt="VAM Logo" />
+          <div className="w-12 lg:w-20">
+            <img
+              className=""
+              src="/VamLogos/VamImageLogoDark.png"
+              alt="VAM Logo"
+            />
           </div>
           <div className="flex flex-col">
-            <h3 className="text-2xl font-normal tracking-wider my-1 md:text-3xl">
+            <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl">
               VAM Law
             </h3>
-            <h3 className="text-2xl font-normal my-1 md:text-3xl ">Chambers</h3>
+            <h3 className="text-lg font-semibold tracking-widest  text-[#e9bc23]  lg:text-3xl ">
+              Chambers
+            </h3>
           </div>
         </div>
 
         <div className=" flex items-center md:hidden">
           {isMenuOpen ? (
             <MdOutlineClose
+              className="text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               size={50}
             />
           ) : (
             <GiHamburgerMenu
+              className="text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               size={50}
             />
@@ -84,70 +108,61 @@ const Navbar = () => {
         </div>
         {/* menu icon  */}
         <div className=" hidden md:flex w-1/2  justify-center items-center">
-          <ul className="flex w-full  justify-evenly">
+          <ul className="flex justify-end w-full  gap-8">
             {menuIcons.map((item) => (
-              <li className="text-xl font-normal">{item.name}</li>
+              // active color : text-[#e9bc23]
+              <li
+                className={`cursor-pointer text-base font-normal ${
+                  activeMenuItem === item.name ? "text-[#e9bc23]" : "text-white"
+                } hover:text-[#e9bc23]`}
+                onClick={() => handleMenuItemClick(item)}
+              >
+                {item.name}
+              </li>
             ))}
           </ul>
         </div>
       </div>
+      {/* Mobile navbar  */}
+      <ul
+        className={
+          isMenuOpen
+            ? "z-10 fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#222733] ease-in-out duration-500"
+            : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
+        }
+      >
+        {/* Mobile Logo */}
+        <div className="p-4 flex items-center gap-2">
+          <div className="w-12 lg:w-20">
+            <img
+              className=""
+              src="/VamLogos/VamImageLogoDark.png"
+              alt="VAM Logo"
+            />
+          </div>
+          <div className="flex flex-col">
+            <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl">
+              VAM Law
+            </h3>
+            <h3 className="text-lg font-semibold tracking-widest  text-[#e9bc23]  lg:text-3xl ">
+              Chambers
+            </h3>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Items */}
+        {menuIcons.map((item) => (
+          <li
+            key={item.id}
+            className="p-4 border-b text-white hover:bg-[#e9bc23] duration-300 hover:text-black cursor-pointer border-gray-600"
+            onClick={() => handleMenuItemClick(item)}
+          >
+            {item.name}
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
 
 export default Navbar;
-
-// {/* <div className="  w-full container mx-auto px-4 flex justify-between gap-8  items-center">
-// <div className=" flex items-center gap-2">
-//   <div>
-//     {/* Logo */}
-//     <img className="w-full" src="/VAMLogos/VAMImageLogo.png" alt="" />
-//   </div>
-//   <h3 className="text-xl md:text-3xl flex flex-col gap-1">
-//     <span className="tracking-wider">VAM Law</span>
-//     <span>Chambers</span>
-//   </h3>
-// </div>
-// <div className="md:hidden">
-//   <GiHamburgerMenu size={50} />
-// </div>
-// <div className="hidden md:block  w-1/2 border border-red-400">
-//   <div className="flex">
-//     {/* contact details */}
-//     <div>
-//       <span className="text-lg">+91 9294349229</span>
-//     </div>
-
-//     {/* social Media icons */}
-//     {/* <div className="flex items-center p-2 gap-2 justify-center rounded-md  ">
-//     {socialMedia.map((item) => (
-//       <a
-//         className="transition hover:opacity-75"
-//         target="_blank"
-//         rel="noreferrer"
-//         href={item.url}
-//         key={item.id}
-//       >
-//         {item.icons}
-//       </a>
-//     ))}
-//   </div> */}
-//   </div>
-//   <div className="">
-//     <ul className="flex justify-evenly">
-//       <li>
-//         <a href="#">Home</a>
-//       </li>
-//       <li>
-//         <a href="#">About</a>
-//       </li>
-//       <li>
-//         <a href="#">Services</a>
-//       </li>
-//       <li>
-//         <a href="#">Contact</a>
-//       </li>
-//     </ul>
-//   </div>
-// </div>
-// </div> */}
