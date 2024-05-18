@@ -82,11 +82,16 @@ const Navbar = () => {
             />
           </div>
           <div className="flex flex-col">
-            <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl">
-              VAM Law
-            </h3>
+            <div className="flex justify-between">
+              <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl">
+                VAM
+              </h3>
+              <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl">
+                LAW
+              </h3>
+            </div>
             <h3 className="text-lg font-semibold tracking-widest  text-[#e9bc23]  lg:text-3xl ">
-              Chambers
+              CHAMBERS
             </h3>
           </div>
         </div>
@@ -141,11 +146,16 @@ const Navbar = () => {
             />
           </div>
           <div className="flex flex-col">
-            <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl">
-              VAM Law
-            </h3>
+            <div className="flex justify-between">
+              <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl">
+                VAM
+              </h3>
+              <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl">
+                LAW
+              </h3>
+            </div>
             <h3 className="text-lg font-semibold tracking-widest  text-[#e9bc23]  lg:text-3xl ">
-              Chambers
+              CHAMBERS
             </h3>
           </div>
         </div>

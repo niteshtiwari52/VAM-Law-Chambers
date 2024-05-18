@@ -69,7 +69,7 @@ const Footer = () => {
   ];
   return (
     <>
-      <footer className="mt-8 bg-[#222733] text-white lg:grid lg:grid-cols-5">
+      <footer className=" mt-8 bg-[#222733] text-white lg:grid lg:grid-cols-5">
         <div className="relative block h-32 lg:col-span-2 lg:h-full">
           <div className="absolute w-full h-full bg-gray-300">
             <iframe

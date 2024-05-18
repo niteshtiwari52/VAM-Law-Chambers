@@ -12,7 +12,7 @@ const HomepageLayout =
         */}
         <Navbar />
 
-        {/* <div className="w-screen container mx-auto "> */}
+        {/* <div className="w-4/5 container mx-auto "> */}
         <Components {...props} />
         {/* </div> */}
         <Footer />
