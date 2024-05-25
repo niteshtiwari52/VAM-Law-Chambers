@@ -9,7 +9,7 @@ app.use(cors({ origin: CLIENT_ACCESS_URL }));
 app.use(express.json()); //to accept json data
 app.get("/", (req, res) => {
   res.json({
-    message: "Welcome to PortFolio Server",
+    message: "Welcome to VAM Law Chamber Server",
   });
 });
 

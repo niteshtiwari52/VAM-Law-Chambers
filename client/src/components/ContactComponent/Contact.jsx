@@ -5,11 +5,11 @@ import { IoMdClose } from "react-icons/io";
 
 const Contact = () => {
   const InitialFormData = {
-    name: "Nitesh",
-    email: "niteshtiwari5222@gmail.com",
-    phone: "9354181823",
+    name: "",
+    email: "",
+    phone: "",
     subject: "",
-    message: "Just trial ",
+    message: "",
   };
 
   const [formData, setFormData] = useState(InitialFormData);
