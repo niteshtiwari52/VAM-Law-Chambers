@@ -83,10 +83,10 @@ const Navbar = () => {
           </div>
           <div className="flex flex-col">
             <div className="flex justify-between">
-              <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl">
+              <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl lg:tracking-[.42rem]">
                 VAM
               </h3>
-              <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl">
+              <h3 className="text-xl font-semibold tracking-widest text-[#e9bc23] lg:text-3xl lg:lg:tracking-[.42rem]">
                 LAW
               </h3>
             </div>
@@ -117,7 +117,7 @@ const Navbar = () => {
             {menuIcons.map((item) => (
               // active color : text-[#e9bc23]
               <li
-                className={`cursor-pointer text-base font-normal ${
+                className={`cursor-pointer text-[1.4rem] font-normal ${
                   activeMenuItem === item.name ? "text-[#e9bc23]" : "text-white"
                 } hover:text-[#e9bc23]`}
                 onClick={() => handleMenuItemClick(item)}
